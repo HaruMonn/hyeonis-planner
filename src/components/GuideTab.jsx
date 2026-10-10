@@ -1,5 +1,3 @@
-import { GUIDE_1CHA, GUIDE_2CHA, SUBJECT_RATIO } from '../data.js';
-
 function GuideCard({ title, guides }) {
   return (
     <div className="bg-white rounded-3xl p-5 shadow-sm border border-slate-100">
@@ -18,7 +16,8 @@ function GuideCard({ title, guides }) {
   );
 }
 
-export default function GuideTab() {
+export default function GuideTab({ data }) {
+  const { GUIDE_1CHA, GUIDE_2CHA, SUBJECT_RATIO } = data;
   return (
     <div className="flex flex-col gap-4">
       <GuideCard title="1차 과목" guides={GUIDE_1CHA} />

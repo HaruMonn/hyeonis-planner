@@ -1,6 +1,5 @@
-import { PHASES } from '../data.js';
-
-export default function PlannerTab() {
+export default function PlannerTab({ data }) {
+  const { PHASES } = data;
   return (
     <div className="flex flex-col gap-4">
       {PHASES.map((p) => (

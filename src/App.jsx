@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Home, CalendarRange, BookOpen, Clock } from 'lucide-react';
+import { Home, CalendarRange, BookOpen, Clock, RefreshCw } from 'lucide-react';
 import HomeTab from './components/HomeTab.jsx';
 import PlannerTab from './components/PlannerTab.jsx';
 import GuideTab from './components/GuideTab.jsx';
 import TutoringTab from './components/TutoringTab.jsx';
+import { usePlannerData } from './hooks/usePlannerData.js';
 
 const TABS = [
   { id: 'home', label: '홈', icon: Home, title: "혀니's 플래너", subtitle: '세무사 스터디' },
@@ -14,6 +15,7 @@ const TABS = [
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
+  const { data, updated, dismissUpdate } = usePlannerData();
   const tab = TABS.find((t) => t.id === activeTab);
 
   return (
@@ -23,11 +25,20 @@ export default function App() {
         <p className="text-xs text-slate-400 font-bold">{tab.subtitle}</p>
       </header>
 
+      {updated && (
+        <button
+          onClick={dismissUpdate}
+          className="shrink-0 mx-5 mt-3 flex items-center gap-2 bg-violet-500 text-white rounded-xl px-4 py-2.5 text-sm font-bold"
+        >
+          <RefreshCw size={16} /> 새 플래너 내용이 있어요 — 탭을 눌렀어요
+        </button>
+      )}
+
       <main className="flex-1 overflow-y-auto p-5 pb-28">
-        {activeTab === 'home' && <HomeTab />}
-        {activeTab === 'planner' && <PlannerTab />}
-        {activeTab === 'guide' && <GuideTab />}
-        {activeTab === 'tutoring' && <TutoringTab />}
+        {activeTab === 'home' && <HomeTab data={data} />}
+        {activeTab === 'planner' && <PlannerTab data={data} />}
+        {activeTab === 'guide' && <GuideTab data={data} />}
+        {activeTab === 'tutoring' && <TutoringTab data={data} />}
       </main>
 
       <nav className="absolute bottom-0 w-full nav-safe bg-white/90 backdrop-blur-md border-t border-slate-100 flex items-center justify-around px-2 z-40">

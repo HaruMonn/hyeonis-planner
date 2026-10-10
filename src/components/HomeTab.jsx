@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Plus, Trash2, Play, Pause, Square, Check } from 'lucide-react';
-import { DDAY_1CHA, DDAY_2CHA, calcDday } from '../data.js';
+import { calcDday } from '../hooks/usePlannerData.js';
 
 const LS_TODOS = 'hyeoni_todos';
 const LS_TIMER = 'hyeoni_timer_total';
@@ -21,7 +21,8 @@ function DdayCard({ info }) {
   );
 }
 
-export default function HomeTab() {
+export default function HomeTab({ data }) {
+  const { DDAY_1CHA, DDAY_2CHA } = data;
   const [todos, setTodos] = useState(() => {
     try {
       const raw = JSON.parse(localStorage.getItem(LS_TODOS) || '{}');

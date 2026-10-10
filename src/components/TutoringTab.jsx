@@ -1,6 +1,5 @@
-import { TUTORING_SCHEDULE } from '../data.js';
-
-export default function TutoringTab() {
+export default function TutoringTab({ data }) {
+  const { TUTORING_SCHEDULE } = data;
   return (
     <div className="flex flex-col gap-3">
       {TUTORING_SCHEDULE.map((d) => (
