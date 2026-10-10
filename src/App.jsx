@@ -1,4 +1,3 @@
-// v1.0.0 - initial release
 import { useState } from 'react';
 import { Home, CalendarRange, BookOpen, Clock } from 'lucide-react';
 import HomeTab from './components/HomeTab.jsx';
