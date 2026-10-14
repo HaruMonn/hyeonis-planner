@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Home, CalendarRange, BookOpen, Clock, RefreshCw } from 'lucide-react';
+import { Home, CalendarRange, BookOpen, Clock, RefreshCw, ScrollText } from 'lucide-react';
 import HomeTab from './components/HomeTab.jsx';
 import PlannerTab from './components/PlannerTab.jsx';
 import GuideTab from './components/GuideTab.jsx';
 import TutoringTab from './components/TutoringTab.jsx';
+import TimelineTab from './components/TimelineTab.jsx';
 import { usePlannerData } from './hooks/usePlannerData.js';
 
 const TABS = [
@@ -11,6 +12,7 @@ const TABS = [
   { id: 'planner', label: '플래너', icon: CalendarRange, title: '월별 플래너', subtitle: '2026.10 – 2027.7' },
   { id: 'guide', label: '가이드', icon: BookOpen, title: '강사 가이드', subtitle: '과목별 강사' },
   { id: 'tutoring', label: '과외', icon: Clock, title: '과외 시간표', subtitle: '금토일월' },
+  { id: 'timeline', label: '타임라인', icon: ScrollText, title: '부쉐론 사건 타임라인', subtitle: '9/24 – 10/13' },
 ];
 
 export default function App() {
@@ -39,6 +41,7 @@ export default function App() {
         {activeTab === 'planner' && <PlannerTab data={data} />}
         {activeTab === 'guide' && <GuideTab data={data} />}
         {activeTab === 'tutoring' && <TutoringTab data={data} />}
+        {activeTab === 'timeline' && <TimelineTab data={data} />}
       </main>
 
       <nav className="absolute bottom-0 w-full nav-safe bg-white/90 backdrop-blur-md border-t border-slate-100 flex items-center justify-around px-2 z-40">
