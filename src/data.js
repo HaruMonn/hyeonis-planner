@@ -9,15 +9,15 @@ export const PHASES = [
     months: '11 – 12월',
     title: '기초 재구축',
     headerBg: 'bg-violet-500',
-    desc: '수능 전까지는 낮 시간 위주 공부 · 수능 후 고3 과외 종료로 공부 시간 확대 · 세법 기본서 정독 · 회계 개정 정리',
+    desc: '최신 과외 15블록·39시간 기준 (백승주 빠짐, 김경민 일·월 추가) · 수능 이후 고3 과외 종료되면 공부 시간 확대 · 세법 기본서 정독 · 회계 개정 정리',
     days: [
-      { day: '월', text: '세법 기본서 정독 풀데이 (과외 없음)' },
+      { day: '월', text: '세법 기본서 정독 낮 시간 (과외 21-24 김경민)' },
       { day: '화', text: '세법 기본서 정독 낮 시간 (과외 20-22 도현수)' },
-      { day: '수', text: '회계 개정 중심 낮 시간 (과외 19-22 손은진)' },
-      { day: '목', text: '재정학 4h + 행정소송법 3h + 복습 2h (과외 없음)' },
-      { day: '금', text: '세법/회계 번갈아 심화 풀데이 (과외 없음)' },
-      { day: '토', text: '오전 공부 + 과외 13-16 전유준 + 저녁 복습' },
-      { day: '일', text: '과외 10-13 손은진 + 오후/저녁 공부' },
+      { day: '수', text: '회계 개정 중심 낮 시간 (과외 19-22 손은진, 22:30-25:30 김경민)' },
+      { day: '목', text: '재정학 + 행정소송법 낮 시간 (과외 18:30-22:30 이재원)' },
+      { day: '금', text: '세법/회계 번갈아 심화 낮 시간 (과외 18:30-21:30 강승연)' },
+      { day: '토', text: '과외 종일 — 휴식 (강승연·전유준·이재원·김경민)', rest: true },
+      { day: '일', text: '틈새 공부 16-21시 — 복습 위주 (과외 10-13 손은진, 14-16 이루다, 21-24 김경민)' },
     ],
   },
   {
@@ -111,30 +111,59 @@ export const SUBJECT_RATIO = [
 
 export const TUTORING_SCHEDULE = [
   {
-    day: '금',
-    headerBg: 'bg-violet-500',
+    day: '월',
+    headerBg: 'bg-amber-500',
     sessions: [
-      { time: '18:30 – 21:30', place: '진량', detail: '진량호반베르디움더포레스트', pill: 'bg-violet-100 text-violet-600' },
+      { time: '21:00 – 24:00', place: '황금', detail: '캐슬골드파크5단지 (김경민)', pill: 'bg-amber-100 text-amber-600' },
+    ],
+  },
+  {
+    day: '화',
+    headerBg: 'bg-amber-500',
+    sessions: [
+      { time: '20:00 – 22:00', place: '북구', detail: '푸르지오 3차 (도현수)', pill: 'bg-amber-100 text-amber-700' },
+    ],
+  },
+  {
+    day: '수',
+    headerBg: 'bg-indigo-500',
+    sessions: [
+      { time: '19:00 – 22:00', place: '평리', detail: '평리푸르지오 (손은진)', pill: 'bg-indigo-100 text-indigo-600' },
+      { time: '22:30 – 25:30', place: '황금', detail: '캐슬골드파크5단지 (김경민)', pill: 'bg-amber-100 text-amber-600' },
+    ],
+  },
+  {
+    day: '목',
+    headerBg: 'bg-yellow-500',
+    sessions: [
+      { time: '18:30 – 22:30', place: '칠곡', detail: '이재원', pill: 'bg-yellow-100 text-yellow-600' },
+    ],
+  },
+  {
+    day: '금',
+    headerBg: 'bg-sky-500',
+    sessions: [
+      { time: '18:30 – 21:30', place: '진량', detail: '진량호반베르디움더포레스트 (강승연)', pill: 'bg-sky-100 text-sky-600' },
     ],
   },
   {
     day: '토',
     headerBg: 'bg-indigo-500',
     sessions: [
-      { time: '09:00 – 12:00', place: '진량', detail: '진량호반베르디움더포레스트', pill: 'bg-violet-100 text-violet-600' },
-      { time: '13:00 – 16:00', place: '수성', detail: '동대구로 10 수성 더파크', pill: 'bg-indigo-100 text-indigo-600' },
-      { time: '17:00 – 21:00', place: '칠곡', detail: '', pill: 'bg-amber-100 text-amber-600' },
+      { time: '09:00 – 12:00', place: '진량', detail: '진량호반베르디움더포레스트 (강승연)', pill: 'bg-sky-100 text-sky-600' },
+      { time: '13:00 – 16:00', place: '수성', detail: '동대구로 10 수성 더파크 (전유준)', pill: 'bg-teal-100 text-teal-600' },
+      { time: '17:00 – 21:00', place: '칠곡', detail: '이재원', pill: 'bg-yellow-100 text-yellow-600' },
+      { time: '22:00 – 25:00', place: '황금', detail: '캐슬골드파크5단지 (김경민)', pill: 'bg-amber-100 text-amber-600' },
     ],
   },
   {
     day: '일',
-    headerBg: 'bg-rose-500',
-    sessions: [{ time: '20:00 – 24:00', place: '평택', detail: '', pill: 'bg-rose-100 text-rose-600' }],
-  },
-  {
-    day: '월',
-    headerBg: 'bg-rose-500',
-    sessions: [{ time: '18:00 – 22:00', place: '평택', detail: '', pill: 'bg-rose-100 text-rose-600' }],
+    headerBg: 'bg-violet-500',
+    sessions: [
+      { time: '10:00 – 13:00', place: '평리', detail: '평리푸르지오 (손은진)', pill: 'bg-indigo-100 text-indigo-600' },
+      { time: '14:00 – 16:00', place: '시지', detail: '숨마3.0 스터디카페 시지본점 (이루다)', pill: 'bg-violet-100 text-violet-600' },
+      { time: '21:00 – 24:00', place: '황금', detail: '캐슬골드파크5단지 (김경민)', pill: 'bg-amber-100 text-amber-600' },
+    ],
   },
 ];
 
